@@ -1,0 +1,4 @@
+.jPhotoGrid-clear { clear: both; }
+.jPhotoGrid-selector { clear: both; position: relative; }
+.jPhotoGrid-selector > .jPhotoGrid-item { display: block; float: left; position: relative; overflow: hidden; width: auto; }
+.jPhotoGrid-selector > .jPhotoGrid-item:hover, .jPhotoGrid-selector > .jPhotoGrid-item:focus { }
