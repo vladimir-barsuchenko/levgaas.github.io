@@ -1,5 +1,3 @@
-var button = document.querySelector(".add-pictures");
-var input = document.querySelector(".pictures-input");
 
 function computePhotoGrid(elem, onComplete) {
     elem.jPhotoGrid({
@@ -11,8 +9,9 @@ function computePhotoGrid(elem, onComplete) {
         onComplete: onComplete
     });
 }
+var $pictures = $(".pictures");
 
-$(".pictures").each(function () {
+$pictures.each(function () {
     computePhotoGrid($(this));
 });
 
@@ -36,5 +35,33 @@ function deleteElem() {
             parentDeepCopy.remove();
         })
     });
-
 }
+//
+//(function uploadImages($elem, input) {
+//    input.onchange = function () {
+//
+//        var fileReader = new FileReader();
+//        var files = input.files;
+//        var filesCount = input.files.length;
+//        var i = 0;
+//
+//        (function recursiveUploadImageFromReader() {
+//
+//            if (i < filesCount) {
+//                fileReader.onloadend = function () {
+//                    var img = document.createElement("IMG");
+//                    img.setAttribute("src", fileReader.result);
+//                    img.style.display = "none";
+//                    $elem[0].appendChild(img);
+//
+//                    i++;
+//                    recursiveUploadImageFromReader();
+//                };
+//
+//                fileReader.readAsDataURL(files[i]);
+//            } else {
+//                computePhotoGrid($elem);
+//            }
+//        })();
+//    }
+//})($pictures.first(), $(".pictures-input")[0]);
