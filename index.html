@@ -1,120 +1,136 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <meta name="author" content="Absent">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>jPhotoGrid - jQuery plugin for align elements</title>
-    <script src="js/jquery-2.1.4.min.js"></script>
+    <meta charset="utf-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no"/>
+
+
+    <link rel='stylesheet' href='https://www.google.com/fonts#UsePlace:use/Collection:Roboto:300,100,400'>
+    <link rel="stylesheet" href="3rdPartyLibs/js/bower_components/angular-material/angular-material.css"/>
+    <link rel="stylesheet" href="css/jquery.jPhotoGrid.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+    <link rel="stylesheet" href="3rdPartyLibs/css/nprogress.css"/>
+
+
+    <script src="3rdPartyLibs/js/jquery-2.1.4.min.js"></script>
+    <script src="3rdPartyLibs/js/imagesloaded.pkgd.min.js"></script>
+    <script src="3rdPartyLibs/js/nprogress.js"></script>
     <script src="js/jquery.jPhotoGrid.js"></script>
 
-    <link rel="stylesheet" href="css/jquery.jPhotoGrid.css"/>
+    <script src="./3rdPartyLibs/js/bower_components/angular/angular.js"></script>
+    <script src="./3rdPartyLibs/js/bower_components/angular-animate/angular-animate.js"></script>
+    <script src="./3rdPartyLibs/js/bower_components/angular-aria/angular-aria.js"></script>
+    <script type="text/javascript"
+            src="./3rdPartyLibs/js/bower_components/angular-material/angular-material.js"></script>
+
+    <script>
+        angular
+                .module('app', ['ngMaterial'])
+                .config(function($mdThemingProvider){
+                    $mdThemingProvider.theme('default')
+                            .primaryPalette('brown')
+                            .accentPalette('blue');
+
+                });
+    </script>
 
     <style type="text/css">
-        body, html {
-            padding: 0px;
-            margin: 0px;
-        }
-
-        a {
-            color: #3366CC;
-        }
-
-        .wrapper {
-            width: 900px;
-            margin: 0 auto;
-            font: normal normal 400 100%/1.5em georgia, serif;
-            color: #222;
-        }
-
-        .wrapper h1 {
-            font: normal 600%/100% georgia, serif;
-            text-shadow: 0 -1px 1px rgba(255, 255, 255, 0.01);
-            margin: 0 0 5px 0;
-            text-align: center;
-        }
-
-        .wrapper h2 {
-            font: normal 200%/100% georgia, serif;
-            text-shadow: 0 -1px 1px rgba(255, 255, 255, 0.01);
-            margin: 0 0 5px 0;
-            text-transform: uppercase;
-        }
-
-        .wrapper h3 {
-            font: normal 150%/100% georgia, serif;
-            text-shadow: 0 -1px 1px rgba(255, 255, 255, 0.01);
-            margin: 0 0 5px 0;
-        }
-
-        .wrapper hr {
-            border: none;
-            border-top: 1px solid #ddd;
-        }
-
-        .head p {
-            font: normal 145%/1em georgia, serif;
-            text-shadow: 0 -1px 1px rgba(255, 255, 255, 0.01);
-            text-align: center;
-        }
-
-        .buttons a {
-            display: inline-block;
-            background: #ddd;
-            color: #111;
-            width: 39.5%;
-            margin: 0 5%;
-            border-radius: 3px;
-            text-align: center;
-            line-height: 2.6em;
-            text-decoration: none;
-        }
-
-        .buttons a:hover {
-            background: #3366CC;
-            color: #fff;
-        }
-        .wrapper pre {
-            font: normal 87.5%/1.2em monospace, sans-serif;
-            padding: 15px 30px 0px 30px;
-            margin: 0;
-            background: #eee;
-            border-radius: 3px;
-            display: block;
-            overflow: auto;
-        }
-
-        .pictures {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            padding: 0;
-            background-color: #e5f1f2;
-            z-index: 5;
-            /*border: 1px solid black;*/
-        }
-
-        .pictures img:hover {
-            /*-webkit-filter: blur(1px);*/
-            /*filter: blur(3px);*/
-            opacity: 0.5;
-            cursor: pointer;
-        }
-
-        .pic_wrap {
-            width: 620px;
-            height: 350px;
-            margin: 0px auto;
-            position: relative;
-            overflow: hidden;
+        /**
+         * Hide when Angular is not yet loaded and initialized
+         */
+        [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+            display: none !important;
         }
 
     </style>
 
 </head>
-<body>
-<div class="wrapper">
+<body onresize="onResizeFunc()">
+
+<header class="pic_wrap">
+    <div class="pictures" id="head_pics" onclick="deleteElem()">
+        <img src="images/1.jpg" style="display: none;">
+        <img src="images/2.jpg" style="display: none;">
+        <img src="images/3.jpg" style="display: none;">
+        <img src="images/4.jpg" style="display: none;">
+        <img src="images/5.jpg" style="display: none;">
+        <img src="images/6.jpg" style="display: none;">
+        <img src="images/7.jpg" style="display: none;">
+        <img src="images/8.jpg" style="display: none;">
+        <img src="images/9.jpg" style="display: none;">
+        <img src="images/10.jpg" style="display: none;">
+    </div>
+</header>
+<div class="content">PhotoGrid.js</div>
+
+<div ng-app="app" class="tab_wrapper" ng-cloak>
+    <md-content>
+        <md-tabs md-dynamic-height md-border-bottom>
+            <md-tab label="one">
+                <md-content>
+                    <div class="pic_wrap">
+                        <div class="pictures" onclick="deleteElem()">
+                            <img src="images/1.jpg" style="display: none;">
+                            <img src="images/2.jpg" style="display: none;">
+                            <img src="images/3.jpg" style="display: none;">
+                            <img src="images/4.jpg" style="display: none;">
+                            <img src="images/5.jpg" style="display: none;">
+                        </div>
+                    </div>
+                </md-content>
+            </md-tab>
+            <md-tab label="two">
+                <md-content>
+                    <div class="pic_wrap">
+                        <div class="pictures" onclick="deleteElem()">
+                            <img src="images/1.jpg" style="display: none;">
+                            <img src="images/2.jpg" style="display: none;">
+                            <img src="images/3.jpg" style="display: none;">
+                            <img src="images/4.jpg" style="display: none;">
+                            <img src="images/8.jpg" style="display: none;">
+                            <img src="images/9.jpg" style="display: none;">
+                            <img src="images/10.jpg" style="display: none;">
+                            <img src="images/1.jpg" style="display: none;">
+                            <img src="images/2.jpg" style="display: none;">
+                            <img src="images/3.jpg" style="display: none;">
+                            <img src="images/4.jpg" style="display: none;">
+                            <img src="images/8.jpg" style="display: none;">
+                            <img src="images/9.jpg" style="display: none;">
+                        </div>
+                    </div>
+                </md-content>
+            </md-tab>
+            <md-tab label="three">
+                <md-content>
+                    <div class="pic_wrap">
+                        <div class="pictures" onclick="deleteElem()">
+                            <img src="images/1.jpg" style="display: none;">
+                            <img src="images/2.jpg" style="display: none;">
+                        </div>
+                    </div>
+                </md-content>
+            </md-tab>
+            <md-tab label="four">
+                <md-content>
+                    <div class="pic_wrap">
+                        <div class="pictures" onclick="deleteElem()">
+                            <img src="images/9.jpg" style="display: none;">
+                            <img src="images/8.jpg" style="display: none;">
+                            <img src="images/10.jpg" style="display: none;">
+                        </div>
+                    </div>
+                </md-content>
+            </md-tab>
+        </md-tabs>
+    </md-content>
+</div>
+
+
+<!--<div class="wrapper">-->
     <!--<div class="add-pictures">-->
         <!--Add pictures-->
         <!--<input class="pictures-input hidden" type="file" multiple>-->
@@ -124,103 +140,89 @@
     <!--</div>-->
     <!--<div class="space" style="height: 50px; width: 500px; text-align: center; line-height: 50px; margin: 0 auto;"></div>-->
 
-    <div class="pic_wrap">
-        <div class="pictures" onclick="deleteElem()">
-            <img src="img/2.jpg" style="display: none;">
-            <img src="img/3.jpg" style="display: none;">
-            <img src="img/4.png" style="display: none;">
-            <img src="img/5.jpg" style="display: none;">
-            <img src="img/20150920_215110.jpg" style="display: none;">
-            <img src="img/pics-001.jpg" style="display: none;">
-            <img src="img/pics-002.jpg" style="display: none;">
-            <img src="img/pics-003.jpg" style="display: none;">
-            <img src="img/pics-007.jpg" style="display: none;">
-            <img src="img/pics-008.jpg" style="display: none;">
-            <img src="img/pics-009.jpg" style="display: none;">
-            <img src="img/pics-010.jpg" style="display: none;">
-            <img src="img/Untitled.png" style="display: none;">
-        </div>
-    </div>
-    <div class="space" style="height: 50px; width: 500px; text-align: center; line-height: 50px; margin: 0 auto;"></div>
-    <div class="pic_wrap">
-        <div class="pictures" onclick="deleteElem()">
-            <img src="img/2.jpg" style="display: none;">
-            <img src="img/3.jpg" style="display: none;">
-            <img src="img/4.png" style="display: none;">
-            <img src="img/5.jpg" style="display: none;">
-            <img src="img/20150920_215110.jpg" style="display: none;">
-            <img src="img/pics-001.jpg" style="display: none;">
-            <img src="img/pics-002.jpg" style="display: none;">
-            <img src="img/pics-003.jpg" style="display: none;">
-            <img src="img/pics-007.jpg" style="display: none;">
-            <img src="img/pics-008.jpg" style="display: none;">
-            <img src="img/pics-009.jpg" style="display: none;">
-            <img src="img/pics-010.jpg" style="display: none;">
-            <img src="img/Untitled.png" style="display: none;">
-            <img src="img/2.jpg" style="display: none;">
-            <img src="img/3.jpg" style="display: none;">
-            <img src="img/4.png" style="display: none;">
-            <img src="img/5.jpg" style="display: none;">
-            <img src="img/20150920_215110.jpg" style="display: none;">
-            <img src="img/pics-001.jpg" style="display: none;">
-            <img src="img/pics-002.jpg" style="display: none;">
-            <img src="img/pics-003.jpg" style="display: none;">
-            <img src="img/pics-007.jpg" style="display: none;">
-        </div>
-    </div>
-    <div class="space" style="height: 50px; width: 500px; text-align: center; line-height: 50px; margin: 0 auto;"></div>
-    <div class="pic_wrap">
-        <div class="pictures" onclick="deleteElem()">
-            <img src="img/pics-001.jpg" style="display: none;">
-            <img src="img/pics-002.jpg" style="display: none;">
-            <img src="img/pics-003.jpg" style="display: none;">
-            <img src="img/pics-004.jpg" style="display: none;">
-            <img src="img/pics-005.jpg" style="display: none;">
-            <img src="img/pics-006.jpg" style="display: none;">
-        </div>
-    </div>
-    <div class="space" style="height: 50px; width: 500px; text-align: center; line-height: 50px; margin: 0 auto;"></div>
-    <div class="pic_wrap">
-        <iframe style="position: relative; width: 100%; height: 100%" src="https://www.youtube.com/embed/zyOS2EY_awk"
-                frameborder="0"
-                allowfullscreen></iframe>
-    </div>
+    <!-- -->
+    <!--<div class="space" style="height: 50px; width: 500px; text-align: center; line-height: 50px; margin: 0 auto;"></div>-->
+    <!--<div class="pic_wrap">-->
+        <!--<div class="pictures" onclick="deleteElem()">-->
+            <!--<img src="img/2.jpg" style="display: none;">-->
+            <!--<img src="img/3.jpg" style="display: none;">-->
+            <!--<img src="img/4.png" style="display: none;">-->
+            <!--<img src="img/5.jpg" style="display: none;">-->
+            <!--<img src="img/20150920_215110.jpg" style="display: none;">-->
+            <!--<img src="img/pics-001.jpg" style="display: none;">-->
+            <!--<img src="img/pics-002.jpg" style="display: none;">-->
+            <!--<img src="img/pics-003.jpg" style="display: none;">-->
+            <!--<img src="img/pics-007.jpg" style="display: none;">-->
+            <!--<img src="img/pics-008.jpg" style="display: none;">-->
+            <!--<img src="img/pics-009.jpg" style="display: none;">-->
+            <!--<img src="img/pics-010.jpg" style="display: none;">-->
+            <!--<img src="img/Untitled.png" style="display: none;">-->
+            <!--<img src="img/2.jpg" style="display: none;">-->
+            <!--<img src="img/3.jpg" style="display: none;">-->
+            <!--<img src="img/4.png" style="display: none;">-->
+            <!--<img src="img/5.jpg" style="display: none;">-->
+            <!--<img src="img/20150920_215110.jpg" style="display: none;">-->
+            <!--<img src="img/pics-001.jpg" style="display: none;">-->
+            <!--<img src="img/pics-002.jpg" style="display: none;">-->
+            <!--<img src="img/pics-003.jpg" style="display: none;">-->
+            <!--<img src="img/pics-007.jpg" style="display: none;">-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<div class="space" style="height: 50px; width: 500px; text-align: center; line-height: 50px; margin: 0 auto;"></div>-->
+    <!--<div class="pic_wrap">-->
+        <!--<div class="pictures" onclick="deleteElem()">-->
+            <!--<img src="img/pics-001.jpg" style="display: none;">-->
+            <!--<img src="img/pics-002.jpg" style="display: none;">-->
+            <!--<img src="img/pics-003.jpg" style="display: none;">-->
+            <!--<img src="img/pics-004.jpg" style="display: none;">-->
+            <!--<img src="img/pics-005.jpg" style="display: none;">-->
+            <!--<img src="img/pics-006.jpg" style="display: none;">-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<div class="space" style="height: 50px; width: 500px; text-align: center; line-height: 50px; margin: 0 auto;"></div>-->
+    <!--<div class="pic_wrap">-->
+        <!--<iframe style="position: relative; width: 100%; height: 100%" src="https://www.youtube.com/embed/zyOS2EY_awk"-->
+                <!--frameborder="0"-->
+                <!--allowfullscreen></iframe>-->
+    <!--</div>-->
 
-    <div class="space" style="height: 50px; width: 500px; text-align: center; line-height: 50px; margin: 0 auto;"></div>
-    <div class="pic_wrap">
-        <div class="pictures" onclick="deleteElem()">
-            <img src="img/pics-011.jpg" style="display: none;">
-        </div>
-    </div>
-    <div class="space" style="height: 50px; width: 500px; text-align: center; line-height: 50px; margin: 0 auto;"></div>
-    <div class="pic_wrap">
-        <iframe style="position: relative; width: 100%; height: 100%" src="https://www.youtube.com/embed/G4cJ4wviwS8"
-                frameborder="0"
-                allowfullscreen>
-        </iframe>
-    </div>
-    <div class="space" style="height: 50px; width: 500px; text-align: center; line-height: 50px; margin: 0 auto;"></div>
-    <div class="pic_wrap">
-        <div class="pictures" onclick="deleteElem()">
-            <img src="img/pics-012.jpg" style="display: none;">
-            <img src="img/pics-013.jpg" style="display: none;">
-            <img src="img/1.png" style="display: none;">
-            <img src="img/2.jpg" style="display: none;">
-            <img src="img/3.jpg" style="display: none;">
-        </div>
-    </div>
-    <div class="space" style="height: 50px; width: 500px; text-align: center; line-height: 50px; margin: 0 auto;"></div>
-    <div class="pic_wrap">
-        <div class="pictures" onclick="deleteElem()">
-            <img src="img/4.png" style="display: none;">
-            <img src="img/5.jpg" style="display: none;">
-            <img src="img/6.png" style="display: none;">
-            <img src="img/7.jpg" style="display: none;">
-            <img src="img/8.jpg" style="display: none;">
-        </div>
-    </div>
+    <!--<div class="space" style="height: 50px; width: 500px; text-align: center; line-height: 50px; margin: 0 auto;"></div>-->
+    <!--<div class="pic_wrap">-->
+        <!--<div class="pictures" onclick="deleteElem()">-->
+            <!--<img src="img/pics-011.jpg" style="display: none;">-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<div class="space" style="height: 50px; width: 500px; text-align: center; line-height: 50px; margin: 0 auto;"></div>-->
+    <!--<div class="pic_wrap">-->
+        <!--<iframe style="position: relative; width: 100%; height: 100%" src="https://www.youtube.com/embed/G4cJ4wviwS8"-->
+                <!--frameborder="0"-->
+                <!--allowfullscreen>-->
+        <!--</iframe>-->
+    <!--</div>-->
+    <!--<div class="space" style="height: 50px; width: 500px; text-align: center; line-height: 50px; margin: 0 auto;"></div>-->
+    <!--<div class="pic_wrap">-->
+        <!--<div class="pictures" onclick="deleteElem()">-->
+            <!--<img src="img/pics-012.jpg" style="display: none;">-->
+            <!--<img src="img/pics-013.jpg" style="display: none;">-->
+            <!--<img src="img/1.png" style="display: none;">-->
+            <!--<img src="img/2.jpg" style="display: none;">-->
+            <!--<img src="img/3.jpg" style="display: none;">-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<div class="space" style="height: 50px; width: 500px; text-align: center; line-height: 50px; margin: 0 auto;"></div>-->
+    <!--<div class="pic_wrap">-->
+        <!--<div class="pictures" onclick="deleteElem()">-->
+            <!--<img src="img/4.png" style="display: none;">-->
+            <!--<img src="img/5.jpg" style="display: none;">-->
+            <!--<img src="img/6.png" style="display: none;">-->
+            <!--<img src="img/7.jpg" style="display: none;">-->
+            <!--<img src="img/8.jpg" style="display: none;">-->
+        <!--</div>-->
+    <!--</div>-->
 
-</div>
+<!--</div>-->
 <script src="js/main.js"></script>
+
+
 </body>
 </html>

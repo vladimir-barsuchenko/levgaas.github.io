@@ -1,19 +1,73 @@
+$( document ).ready(function() {
 
-function computePhotoGrid(elem, onComplete) {
-    elem.jPhotoGrid({
-        margin: 1,
-        //isFirstRowBig: Math.random() < 0.5,
-        isFirstRowBig: true,
-        isCentred: true,
-        isSmallImageStretched: false,
-        onComplete: onComplete
+    var $pictures = $(".pictures");
+
+    $pictures.each(function () {
+        var it = this;
+        computePhotoGrid($(it), function(){
+            if (it.id === "head_pics") {
+                $(it).animate({
+                    opacity: 1
+                }, 500, function () {
+                    // Animation complete.
+                });
+                $(".tab_wrapper").animate({
+                    opacity: 1
+                }, 500, function () {
+                    // Animation complete.
+                });
+            }
+        }, function (instance, image) {
+            if (it.id === "head_pics") {
+                NProgress.set(instance.progressedCount / instance.images.length);
+            }
+        });
     });
-}
-var $pictures = $(".pictures");
 
-$pictures.each(function () {
-    computePhotoGrid($(this));
+    (function onLoad() {
+        NProgress.start();
+    })();
+
+
+
+    (function uploadImages($elem, input) {
+        input.onchange = function () {
+
+            var fileReader = new FileReader();
+            var files = input.files;
+            var filesCount = input.files.length;
+            var i = 0;
+
+            (function recursiveUploadImageFromReader() {
+
+                if (i < filesCount) {
+                    fileReader.onloadend = function () {
+                        var img = document.createElement("IMG");
+                        img.setAttribute("src", fileReader.result);
+                        img.style.display = "none";
+                        $elem[0].appendChild(img);
+
+                        i++;
+                        recursiveUploadImageFromReader();
+                    };
+
+                    fileReader.readAsDataURL(files[i]);
+                } else {
+                    computePhotoGrid($elem);
+                }
+            })();
+        }
+    })($pictures.first(), $(".pictures-input")[0]);
+
+//$(window).on("resize", function(event){
+//
+//});
+
 });
+
+function onResizeFunc() {
+    computePhotoGrid($("#head_pics"));
+}
 
 function deleteElem() {
     var target = event.target;
@@ -36,32 +90,14 @@ function deleteElem() {
         })
     });
 }
-//
-//(function uploadImages($elem, input) {
-//    input.onchange = function () {
-//
-//        var fileReader = new FileReader();
-//        var files = input.files;
-//        var filesCount = input.files.length;
-//        var i = 0;
-//
-//        (function recursiveUploadImageFromReader() {
-//
-//            if (i < filesCount) {
-//                fileReader.onloadend = function () {
-//                    var img = document.createElement("IMG");
-//                    img.setAttribute("src", fileReader.result);
-//                    img.style.display = "none";
-//                    $elem[0].appendChild(img);
-//
-//                    i++;
-//                    recursiveUploadImageFromReader();
-//                };
-//
-//                fileReader.readAsDataURL(files[i]);
-//            } else {
-//                computePhotoGrid($elem);
-//            }
-//        })();
-//    }
-//})($pictures.first(), $(".pictures-input")[0]);
+function computePhotoGrid(elem, onComplete, onProgress) {
+    elem.jPhotoGrid({
+        margin: 1,
+        //isFirstRowBig: Math.random() < 0.5,
+        isFirstRowBig: true,
+        isCentred: true,
+        isSmallImageStretched: false,
+        onComplete: onComplete,
+        onProgress: onProgress
+    });
+}
