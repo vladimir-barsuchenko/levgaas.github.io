@@ -124,13 +124,14 @@ md-content h1:first-child {
   margin-top: 75px; }
 
 .info-example {
+  width: 500px;
   margin-top: 75px; }
 
 pre {
   padding: 8px 15px;
   background: white;
   border-radius: 2px;
-  overflow-x: auto; }
+  overflow-x: scroll; }
 
 .grid-list-wrapper {
   width: 80%;

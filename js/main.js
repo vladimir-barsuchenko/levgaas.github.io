@@ -1,10 +1,14 @@
 $(document).ready(function () {
 
     var $pictures = $(".pictures");
+
     $(window).resize(function () {
-        computePhotoGrid($("#head_pics"));
-        computePhotoGrid($("#pictures_divider"));
-        computePhotoGrid($("#pictures_divider2"));
+        $pictures.each(function(){
+            computePhotoGrid($(this));
+        });
+        //computePhotoGrid($("#head_pics"));
+        //computePhotoGrid($("#pictures_divider"));
+        //computePhotoGrid($("#pictures_divider2"));
 
     });
     $pictures.each(function () {
