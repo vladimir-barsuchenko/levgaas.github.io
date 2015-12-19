@@ -11,9 +11,7 @@ body, html {
   z-index: 5;
 }
 
-.pictures img:hover {
-  /*-webkit-filter: blur(1px);*/
-  /*filter: blur(3px);*/
+.pic_wrap .pictures img:hover {
   opacity: 0.5;
   cursor: pointer;
 }
