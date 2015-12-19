@@ -1,11 +1,16 @@
-$( document ).ready(function() {
+$(document).ready(function () {
 
     var $pictures = $(".pictures");
+    $(window).resize(function () {
+        computePhotoGrid($("#head_pics"));
+        computePhotoGrid($("#pictures_divider"));
+        computePhotoGrid($("#pictures_divider2"));
 
+    });
     $pictures.each(function () {
         var it = this;
-        computePhotoGrid($(it), function(){
-            if (it.id === "head_pics") {
+        if (it.id === "head_pics" || it.id === "pictures_divider" || it.id === "pictures_divider2") {
+            computePhotoGrid($(it), function () {
                 $(it).animate({
                     opacity: 1
                 }, 500, function () {
@@ -16,18 +21,26 @@ $( document ).ready(function() {
                 }, 500, function () {
                     // Animation complete.
                 });
-            }
-        }, function (instance, image) {
-            if (it.id === "head_pics") {
+
+                var $centredBlock = $(it).find(".jPhotoGrid_centred_block");
+                if ($centredBlock) {
+                    $(it).parent().height($centredBlock.height());
+                    $centredBlock.css("paddingTop", "0px");
+                }
+
+            }, function (instance, image) {
                 NProgress.set(instance.progressedCount / instance.images.length);
-            }
-        });
+            });
+        } else {
+            computePhotoGrid($(it));
+        }
+
+
     });
 
     (function onLoad() {
         NProgress.start();
     })();
-
 
 
     (function uploadImages($elem, input) {
@@ -58,15 +71,13 @@ $( document ).ready(function() {
             })();
         }
     })($pictures.first(), $(".pictures-input")[0]);
-
-//$(window).on("resize", function(event){
-//
-//});
-
 });
 
-function onResizeFunc() {
+function onResizeFunc(elem) {
     computePhotoGrid($("#head_pics"));
+    //var $centredBlock = $(".jPhotoGrid_centred_block");
+    //$(".pic_wrap").height($centredBlock.height());
+    //$centredBlock.css("paddingTop", "0px");
 }
 
 function deleteElem() {

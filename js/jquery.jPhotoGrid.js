@@ -13,7 +13,7 @@
         minRelation: 0.4,
         onComplete: function () {
         },
-        onProgress: function(instance, image) {
+        onProgress: function (instance, image) {
         }
     };
 
@@ -60,7 +60,7 @@
                 .done(function () {
                     it.start();
                 })
-                .progress(function(instance, image){
+                .progress(function (instance, image) {
                     it.options.onProgress && it.options.onProgress(instance, image);
                 });
         } else {
