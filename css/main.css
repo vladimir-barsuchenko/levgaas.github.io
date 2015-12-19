@@ -1,0 +1,166 @@
+body, html {
+  padding: 0px;
+  margin: 0px;
+  background-color: white; }
+
+.pictures {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  z-index: 5; }
+
+.pictures img:hover {
+  /*-webkit-filter: blur(1px);*/
+  /*filter: blur(3px);*/
+  opacity: 0.5;
+  cursor: pointer; }
+
+.pic_wrap {
+  width: 500px;
+  height: 400px;
+  position: relative;
+  overflow: hidden; }
+
+header.pic_wrap {
+  width: 100%;
+  height: 400px;
+  margin-top: 1px;
+  position: relative;
+  overflow: hidden; }
+
+#head_pics {
+  opacity: 0; }
+
+#pictures_divider {
+  opacity: 0; }
+
+#pictures_divider2 {
+  opacity: 0; }
+
+h1 {
+  color: black;
+  text-align: center;
+  font-size: 50px;
+  font-weight: 200;
+  margin-top: 75px;
+  margin-bottom: 0; }
+
+h3 {
+  margin: 0 auto;
+  display: table;
+  font-weight: normal;
+  font-size: 1em; }
+
+.i-js {
+  color: #26C6DA; }
+
+md-content {
+  background-color: transparent !important; }
+
+md-content md-tabs {
+  background: #e5f1f2; }
+
+md-content md-tabs md-tabs-canvas {
+  background: white; }
+
+md-content h1:first-child {
+  margin-top: 0; }
+
+.md-button.md-warn.md-fab {
+  background-color: white;
+  color: #000;
+  font-weight: 500; }
+
+.twitter_btn {
+  background: url("../images/tw.png") no-repeat center;
+  background-size: 56px 56px; }
+
+.twitter_btn:hover {
+  box-shadow: #2ca7e0 0px 0px 15px 1px !important; }
+
+.github_btn:hover {
+  box-shadow: black 0px 0px 15px 1px !important; }
+
+.upwork_btn:hover {
+  box-shadow: #96d953 0px 0px 15px 1px !important; }
+
+.github_btn {
+  background: url("../images/gh.png") no-repeat center;
+  background-size: 40px 40px; }
+
+.upwork_btn {
+  background: url("../images/up.png") no-repeat center;
+  background-size: 40px 40px; }
+
+.md-button.md-warn.md-fab:not([disabled]):hover {
+  color: white;
+  background-color: #26C6DA; }
+
+.fabSpeedDialdemoBasicUsage .text-capitalize {
+  text-transform: capitalize; }
+
+.fabSpeedDialdemoBasicUsage .md-fab:hover, .fabSpeedDialdemoBasicUsage .md-fab.md-focused {
+  background-color: white !important; }
+
+.fabSpeedDialdemoBasicUsage p.note {
+  font-size: 1.2rem; }
+
+.fabSpeedDialdemoBasicUsage .lock-size {
+  min-width: 150px;
+  min-height: 150px;
+  width: 150px;
+  height: 150px;
+  margin-left: auto;
+  margin-right: auto; }
+
+.tab_wrapper {
+  opacity: 0;
+  width: 500px;
+  margin: 0 auto; }
+
+.info-about {
+  width: 500px;
+  margin: 0 auto;
+  margin-top: 75px; }
+
+.info-example {
+  margin-top: 75px; }
+
+pre {
+  padding: 8px 15px;
+  background: white;
+  border-radius: 2px;
+  overflow-x: auto; }
+
+.grid-list-wrapper {
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 75px; }
+
+md-grid-list md-grid-tile figure {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: baseline;
+  -ms-flex-align: baseline;
+  align-items: baseline;
+  -webkit-justify-content: center;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 0;
+  margin: 0; }
+
+md-grid-tile-content {
+  padding-left: 24px;
+  padding-right: 24px; }
+
+.divider {
+  margin-top: 75px;
+  width: 100%;
+  height: 280px; }
+
+/*# sourceMappingURL=main.css.map */
