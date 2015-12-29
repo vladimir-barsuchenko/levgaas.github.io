@@ -52,6 +52,9 @@ h3 {
 .i-js {
   color: #26C4DA; }
 
+a {
+  text-decoration: none; }
+
 md-content {
   background-color: transparent !important; }
 
@@ -204,5 +207,10 @@ a.i-js:hover {
 footer {
   height: 85px;
   width: 100%; }
+
+.code_wrap {
+  display: inline-block;
+  padding: 0 5px;
+  background-color: #f7f7f7; }
 
 /*# sourceMappingURL=main.css.map */
