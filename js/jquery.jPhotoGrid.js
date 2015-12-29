@@ -1,6 +1,6 @@
 /*!
  * jPhotoGrid v0.0.1
- * jQuery plugin that helps to create image grid with wrapped in container with fixed height and width"
+ * jQuery plugin that helps to create image grid wrapped in container with fixed height and width"
  * MIT License
  */
 
