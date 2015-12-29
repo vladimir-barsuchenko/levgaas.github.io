@@ -63,6 +63,10 @@ h3 {
 }
 .i-js {
   color: $blue;
+
+}
+a {
+  text-decoration: none;
 }
 
 md-content {
@@ -230,5 +234,10 @@ a.i-js:hover {
 footer {
   height: 85px;
   width: 100%;
+}
+.code_wrap {
+  display: inline-block;
+  padding: 0 5px;
+  background-color: #f7f7f7;
 }
 
