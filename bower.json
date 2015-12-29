@@ -9,7 +9,7 @@
   "ignore": [
     "**/.*",
     "index.html",
-    "3rdPartyLibraries",
+    "3rdPartyLibs",
     "images",
     "css/main.scss",
     "css/main.css",
