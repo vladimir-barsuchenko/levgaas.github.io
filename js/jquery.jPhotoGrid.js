@@ -7,13 +7,12 @@
         itemsType: "img", // Type of elements in the selector
         margin: 0, // Space between elements
         isFirstRowBig: false, // First row - largest
-        transition: "1s ease",
-        isCentred: true,
-        isSmallImageStretched: false,
-        minRelation: 0.4,
-        onComplete: function () {
+        isCentred: true, // Center content if overall height less than wrapper height
+        isSmallImageStretched: false, // Stretch image if it has dimensions smaller than wrapper's one
+        minRelation: 0.4, // Min row relation = Height / Width
+        onComplete: function () {    // Fires after all computations have completed
         },
-        onProgress: function (instance, image) {
+        onProgress: function (instance, image) {  // Fires when image is uploaded
         }
     };
 

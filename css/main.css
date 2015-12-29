@@ -50,7 +50,7 @@ h3 {
   font-size: 1em; }
 
 .i-js {
-  color: #26C6DA; }
+  color: #26C4DA; }
 
 md-content {
   background-color: transparent !important; }
@@ -84,7 +84,7 @@ md-content h1:first-child {
 
 .github_btn {
   background: url("../images/gh.png") no-repeat center;
-  background-size: 40px 40px; }
+  background-size: 42px 42px; }
 
 .upwork_btn {
   background: url("../images/up.png") no-repeat center;
@@ -92,7 +92,7 @@ md-content h1:first-child {
 
 .md-button.md-warn.md-fab:not([disabled]):hover {
   color: white;
-  background-color: #26C6DA; }
+  background-color: #26C4DA; }
 
 .fabSpeedDialdemoBasicUsage .text-capitalize {
   text-transform: capitalize; }
@@ -161,5 +161,48 @@ md-grid-tile-content {
   margin-top: 75px;
   width: 100%;
   height: 280px; }
+
+.border-left {
+  border-left: solid 2px; }
+
+.border-right {
+  border-right: solid 2px; }
+
+.border_red {
+  border-color: #FF3929; }
+
+.border_blue {
+  border-color: #26C4DA; }
+
+.border_yellow {
+  border-color: #FFBB29; }
+
+.inline_block {
+  margin-right: 10px;
+  width: 10px;
+  height: 2px;
+  margin-top: 8px; }
+
+.inline_info {
+  margin-right: 10px; }
+
+.bck_blue {
+  background-color: #26C4DA; }
+
+.bck_yellow {
+  background-color: #FFBB29; }
+
+.bck_red {
+  background-color: #FF3929; }
+
+md-list md-list-item.md-2-line .md-list-item-text p {
+  width: calc(100% - 50px); }
+
+a.i-js:hover {
+  color: #028698; }
+
+footer {
+  height: 85px;
+  width: 100%; }
 
 /*# sourceMappingURL=main.css.map */

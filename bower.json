@@ -1,0 +1,31 @@
+{
+  "name": "jPhotoGrid",
+  "version": "0.0.1",
+  "description": "jQuery plugin that helps to create image grid with wrapped in container with fixed height and width_",
+  "main": "jquery.jPhotoGrid.min.js",
+  "dependencies": {
+    "imagesloaded": "~4.0.0"
+  },
+  "ignore": [
+    "**/.*",
+    "index.html",
+    "3rdPartyLibraries",
+    "images",
+    "css/main.scss",
+    "css/main.css",
+    "js/main.js"
+  ],
+  "homepage": "http://levgaas.github.io/",
+  "authors": [
+    "levgaas <deamerv@gmail.com>"
+  ],
+  "moduleType": [
+    "amd",
+    "globals",
+    "node"
+  ],
+  "keywords": [
+    "images"
+  ],
+  "license": "MIT"
+}

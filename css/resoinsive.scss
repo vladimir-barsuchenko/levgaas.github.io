@@ -27,9 +27,11 @@ only screen and (min-device-width: 1200px) and (max-device-width: 1600px) and (-
 only screen and (min-device-width: 1200px) and (max-device-width: 1600px) and (min--moz-device-pixel-ratio: 1.5) and (orientation: portrait),
 only screen and (min-device-width: 1200px) and (max-device-width: 1600px) and (min-device-pixel-ratio: 1.5) and (orientation: portrait) {
   .info-about {
+    @extend .padding;
     width: 100%
   }
   .info-example {
+    @extend .padding;
     width: 100%
   }
   .tab_wrapper {
@@ -38,4 +40,9 @@ only screen and (min-device-width: 1200px) and (max-device-width: 1600px) and (m
   .pic_wrap {
     width: 100%;
   }
+  .padding {
+    box-sizing: border-box;
+    padding: 0 10px;
+  }
+
 }
