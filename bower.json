@@ -1,7 +1,7 @@
 {
   "name": "jPhotoGrid",
   "version": "0.0.1",
-  "description": "jQuery plugin that helps to create image grid with wrapped in container with fixed height and width_",
+  "description": "jQuery plugin that helps to create image grid wrapped in container with fixed height and width",
   "main": "jquery.jPhotoGrid.min.js",
   "dependencies": {
     "imagesloaded": "~4.0.0"
