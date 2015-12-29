@@ -72,11 +72,11 @@
 </header>
 
 <div class="wrapper" ng-app="app">
+
     <div class="info">
         <h1>
             <i class="i-js">j</i>PhotoGrid<i class="i-js">.js</i>
         </h1>
-
         <h3 ng-controller="DemoCtrl as demo" ng-cloak>
 
             <md-fab-speed-dial md-open="demo.isOpen" md-direction="{{demo.selectedDirection}}">
@@ -348,18 +348,21 @@ function clear() {
             <md-list-item class="md-2-line">
                 <div class="md-list-item-text" layout="column">
                     <a class="i-js" href="css/jquery.jPhotoGrid.min.css">jPhotoGrid.min.css</a>
+
                     <p>mandatory</p>
                 </div>
             </md-list-item>
             <md-list-item class="md-2-line">
                 <div class="md-list-item-text" layout="column">
                     <a class="i-js" href="js/jquery.jPhotoGrid.min.js">jPhotoGrid.min.js</a>
+
                     <p>minified</p>
                 </div>
             </md-list-item>
             <md-list-item class="md-2-line">
                 <div class="md-list-item-text" layout="column">
                     <a class="i-js" href="js/jquery.jPhotoGrid.js">jPhotoGrid.js</a>
+
                     <p>unminified</p>
                 </div>
             </md-list-item>
@@ -372,13 +375,31 @@ function clear() {
             <md-list-item class="md-2-line">
                 <div class="md-list-item-text" layout="row">
                     Install via &nbsp;<a class="i-js" href="http://bower.io/">Bower</a>&nbsp; -
-                    &nbsp;<div class="code_wrap">bower install jPhotoGrid --save</div>
+                    &nbsp;
+                    <div class="code_wrap">bower install jPhotoGrid --save</div>
                 </div>
             </md-list-item>
-
         </md-list>
-
-
+        <div class="info-about">
+            <h3 ng-controller="DemoCtrl as demo" ng-cloak>
+                <md-fab-speed-dial md-open="demo.isOpen" md-direction="{{demo.selectedDirection}}">
+                    <md-fab-actions>
+                        <a href="https://twitter.com/vbarsuchenko">
+                            <md-button aria-label="Twitter" class="md-fab md-raised md-mini twitter_btn">
+                            </md-button>
+                        </a>
+                        <a href="https://github.com/levgaas/levgaas.github.io">
+                            <md-button aria-label="GitHub" class="md-fab md-raised md-mini github_btn">
+                            </md-button>
+                        </a>
+                        <a href="https://www.upwork.com/freelancers/~016a2e1fcfdce1f058">
+                            <md-button aria-label="Upwork" class="md-fab md-raised md-mini upwork_btn">
+                            </md-button>
+                        </a>
+                    </md-fab-actions>
+                </md-fab-speed-dial>
+            </h3>
+        </div>
     </div>
     <footer></footer>
 </div>
