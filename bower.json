@@ -13,6 +13,8 @@
     "images",
     "css/main.scss",
     "css/main.css",
+    "css/resoinsive.scss",
+    "css/resoinsive.css",
     "js/main.js"
   ],
   "homepage": "http://levgaas.github.io/",
